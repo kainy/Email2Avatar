@@ -1,60 +1,38 @@
-<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
-<html>
+<!DOCTYPE HTML> 
+<html> 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
-
-  <title>Email2avatar</title>
-  <meta name="description" content="一个可以查看email所对应Gravatar头像的小工具，用浏览器打开后，输入需要查询的email，点击旁边的按钮提交后即可.">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
+	<meta charset="utf-8"/>
+	<title>Email 2 Gravatar——输入Email查看Gravatar头像</title>
+	<style>
+		body{
+			background: #cfe1ed;
+			font-size: 12px;
+			text-align: center;
+		}
+		.content{
+			margin-top:100px;
+		}
+		#result{
+			border:2px solid;
+		}
+	</style>
+	<script type="text/javascript" src="javascripts/script.js"></script>
+	<script>
+		function md5toavatar(){
+			var sMail= document.getElementById("f").value.toLowerCase();
+			document.getElementById("result").src= "http://www.gravatar.com/avatar/"+hex_md5(sMail)+"?s=128&d=&r=G";
+		}
+	</script>
 </head>
-
 <body>
-
-  <div class="wrapper">
-    <header>
-      <h1 class="title">Email2avatar</h1>
-    </header>
-    <div id="container">
-      <p class="tagline">一个可以查看email所对应Gravatar头像的小工具，用浏览器打开后，输入需要查询的email，点击旁边的按钮提交后即可.</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/kainy/Email2Avatar/tarball/master" class="download-button tar"><span>Download</span></a>
-          <a href="https://github.com/kainy/Email2Avatar/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/kainy/Email2Avatar" class="code">fork Email2avatar on GitHub</a>
-        </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <h3>Welcome to Email2avatar Pages.</h3>
-        </article>
-      </div>
-    </div>
-    <footer>
-      <div class="owner">
-      <p><a href="https://github.com/kainy" class="avatar"><img src="https://secure.gravatar.com/avatar/dac67663e506cbdeb7bac75fffb91c4e?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png" width="48" height="48"/></a> <a href="https://github.com/kainy">kainy</a> maintains <a href="https://github.com/kainy/Email2Avatar">Email2avatar</a></p>
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/kainy/Email2Avatar/tarball/master" class="tar">tar</a><a href="https://github.com/kainy/Email2Avatar/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
-
-  
+	<form>
+		<input id="f" type="text" name="cmail" value="Admin@GQMG.com" />
+		<input type="submit" value="提交" onclick="md5toavatar(); return false;" />
+	</form>
+	<div class="content">
+		<img id="result" src="//avatars3.githubusercontent.com/u/470729?v=3&s=140" />
+		<p>Gravatar头像区域</p>
+		<a href="http://blog.Kainy.CN/2010/10/email2gravatar/">查看介绍</a>
+	</div>
 </body>
 </html>
